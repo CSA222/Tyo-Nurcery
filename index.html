@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swipe Down to Explore</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #998F86;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    .container {
+      width: 414px;
+      height: 896px;
+      position: relative;
+      background: #998F86;
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    .gradient-bg {
+      width: 100%;
+      height: 950px;
+      position: absolute;
+      background: linear-gradient(180deg, #998F86 0%, #33302D 100%);
+    }
+
+    .content {
+      width: 345px;
+      height: 609px;
+      position: absolute;
+      top: 197px;
+      left: 34px;
+    }
+
+    .image-container {
+      position: absolute;
+      top: 100px;
+      width: 345px;
+      height: 423px;
+      background: #C4C4C4;
+      border-top-left-radius: 172.5px;
+      border-top-right-radius: 172.5px;
+      overflow: hidden;
+    }
+
+    .image-container img {
+      width: 365px;
+      height: 470px;
+      position: relative;
+      left: -20px;
+    }
+
+    .swipe-text {
+      position: absolute;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .swipe-text .arrow {
+      width: 24px;
+      height: 24px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      transform: rotate(45deg);
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0) rotate(45deg);
+      }
+      50% {
+        transform: translateY(10px) rotate(45deg);
+      }
+    }
+
+    .welcome-text {
+      position: absolute;
+      top: 210px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+      font-size: 25px;
+      font-family: "Archivo Narrow", sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+   
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="gradient-bg"></div>
+    <div class="content">
+      <div class="image-container">
+        <img src="BungaAnggrek.jpeg" alt="Placeholder Image">
+      </div>
+    </div>
+    <div class="welcome-text">Welcome to<br>TYO Nursery</div>
+    <div class="swipe-text">
+      <span>Swipe Down to Explore</span>
+      <i class="arrow"></i>
+    </div>
+  </div>
+
+  <script>
+// Deteksi scrolling menggunakan mouse atau sentuhan
+let lastScrollTop = 0; // Posisi scroll terakhir
+
+document.addEventListener("scroll", function () {
+  const currentScroll = window.scrollY || document.documentElement.scrollTop;
+
+  // Jika pengguna scroll ke bawah
+  if (currentScroll > lastScrollTop) {
+    window.location.href = "homepage.html"; // Ganti dengan URL halaman tujuan
+  }
+
+  // Update posisi scroll terakhir
+  lastScrollTop = currentScroll;
+});
+
+  </script>
+</body>
+</html>
